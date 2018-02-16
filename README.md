@@ -1,3 +1,22 @@
+# Comments on Patrick's submission
+
+1. donation-analytics.py: main data processing function.
+the data is parsed and filtered for further analysis.
+using dictionary to store the non-repeating donors and the corresponding campaign.
+one known issue is when the input is large, dictionary can't hold the data and will exit due to out of memory.
+one possible solution is to save the non-repeating donors to a database such as sqlite,
+which might be slower for small dataset, but capable of handling large dataset.
+
+2. helpFunctions.py: checking if the input parameters are valid
+isValidName will check if name is valid.
+isValidZipCode will check if zipcode is valid.
+isValidTransDate will check if date is valid.
+isValidTransAmount will check if amount is valid.
+
+3. necessaryClass.py: two wrapper classes for donor and campaign
+simple wrapper classes for the ease to store values in the dictionary
+
+
 # Table of Contents
 1. [Introduction](README.md#introduction)
 2. [Challenge summary](README.md#challenge-summary)
