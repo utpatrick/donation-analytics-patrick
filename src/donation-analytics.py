@@ -5,13 +5,13 @@ from helperFunctions import *
 from datetime import *
 import math
 
-input_dir = sys.argv[1]
-perc_dir = sys.argv[2]
-output_dir = sys.argv[3]
+# input_dir = sys.argv[1]
+# perc_dir = sys.argv[2]
+# output_dir = sys.argv[3]
 
-# input_dir = "../input/itcont.txt"
-# perc_dir = "../input/percentile.txt"
-# output_dir = "../output/repeat_donors.txt"
+input_dir = "../input/itcont.txt"
+perc_dir = "../input/percentile.txt"
+output_dir = "../output/repeat_donors.txt"
 
 percentile = 0
 for line in fileinput.input(perc_dir):
@@ -82,11 +82,13 @@ for line in fileinput.input(input_dir):
                     campaignRecord[CMTEKEY] = thisCampaign
                 campaignRecord[CMTEKEY].updateSum(int(thisDonor.TRANSACTION_AMT))
                 percentileIndex = math.ceil(percentile/100. * campaignRecord[CMTEKEY].LEN) - 1
+                temp = campaignRecord[CMTEKEY].TOTAL_AMOUNT
+                temp.sort()
                 with open(output_dir, "a") as myfile:
                     myfile.write(thisDonor.CMTE_ID + "|" + \
                                  thisDonor.ZIP_CODE + "|" + \
                                  thisCampaignYear + "|" + \
-                                 str(campaignRecord[CMTEKEY].TOTAL_AMOUNT[percentileIndex]) + "|"+ \
+                                 str(temp[percentileIndex]) + "|"+ \
                                  str(campaignRecord[CMTEKEY].SUM) + "|" + \
                                  str(campaignRecord[CMTEKEY].LEN))
                     myfile.write("\n")
