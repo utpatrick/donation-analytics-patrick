@@ -5,13 +5,13 @@ from helperFunctions import *
 from datetime import *
 import math
 
-# input_dir = sys.argv[1]
-# perc_dir = sys.argv[2]
-# output_dir = sys.argv[3]
+input_dir = sys.argv[1]
+perc_dir = sys.argv[2]
+output_dir = sys.argv[3]
 
-input_dir = "../input/itcont.txt"
-perc_dir = "../input/percentile.txt"
-output_dir = "../output/repeat_donors.txt"
+# input_dir = "../input/itcont.txt"
+# perc_dir = "../input/percentile.txt"
+# output_dir = "../output/repeat_donors.txt"
 
 percentile = 0
 for line in fileinput.input(perc_dir):
